@@ -31,6 +31,8 @@
         <module name="realtime-dwd-trade-order-cancel-detail" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="18" />
+    <bytecodeTargetLevel target="18">
+      <module name="FlinkStudy" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

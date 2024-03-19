@@ -45,7 +45,7 @@ public abstract class BaseSQLApp {
 //        // 3. 设置 checkpoint 模式: 精准一次
 //        env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
 //        // 4. checkpoint 存储
-//        env.getCheckpointConfig().setCheckpointStorage("hdfs://hadoop102:8020/gmall2024" + ckAndGroupId);
+//        env.getCheckpointConfig().setCheckpointStorage("hdfs://hadoop102:8020/gmall2024/" + ckAndGroupId);
 //        // 5. checkpoint 并发数
 //        env.getCheckpointConfig().setMaxConcurrentCheckpoints(1);
 //        // 6. checkpoint 之间的最小间隔
