@@ -1,0 +1,3 @@
+# Project exclude paths
+/realtime-common/target/
+/FlinkStudy
