@@ -30,18 +30,18 @@ public abstract  class BaseAPP {
         conf.setInteger("rest.port", port);
         System.setProperty("HADOOP_USER_NAME", "atguigu");
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment(conf);
-        env.setParallelism(Parallelism);
+//        env.setParallelism(Parallelism);
 
-        // TODO 2.设置检查点和状态后端
-        env.enableCheckpointing(5000L);// 设置检查点
-        env.setStateBackend(new HashMapStateBackend());
-        env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);// 精准一次
-        // 设置检查点存储
-        env.getCheckpointConfig().setCheckpointStorage("hdfs://hadoop102:8020/gmall2024" + ckAndGroupID);
-        env.getCheckpointConfig().setMaxConcurrentCheckpoints(1); // 设置检查点的并发数
-        env.getCheckpointConfig().setMinPauseBetweenCheckpoints(5000);//设置检查点的最小间隔
-        env.getCheckpointConfig().setCheckpointTimeout(10000);//超时时间
-        env.getCheckpointConfig().setExternalizedCheckpointCleanup(RETAIN_ON_CANCELLATION);
+        // TODO 2.设置检查点和状态后端(注释掉,在stramparl里面配置)
+//        env.enableCheckpointing(5000L);// 设置检查点
+//        env.setStateBackend(new HashMapStateBackend());
+//        env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);// 精准一次
+//        // 设置检查点存储
+//        env.getCheckpointConfig().setCheckpointStorage("hdfs://hadoop102:8020/gmall2024/" + ckAndGroupID);
+//        env.getCheckpointConfig().setMaxConcurrentCheckpoints(1); // 设置检查点的并发数
+//        env.getCheckpointConfig().setMinPauseBetweenCheckpoints(5000);//设置检查点的最小间隔
+//        env.getCheckpointConfig().setCheckpointTimeout(10000);//超时时间
+//        env.getCheckpointConfig().setExternalizedCheckpointCleanup(RETAIN_ON_CANCELLATION);
         // TODO 3.读取数据
         KafkaSource<String> source = FlinkSourceUtil.getKafkaSource(ckAndGroupID, topicName);
         DataStreamSource<String> kafkaSource = env.fromSource(
